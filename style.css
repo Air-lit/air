@@ -1,0 +1,205 @@
+/* 春日主题变量 */
+:root {
+    --spring-green: #c8e4b2;
+    --spring-pink: #ffb7b7;
+    --morning-light: #fff9f0;
+    --text-soft: #5a5a5a;
+}
+
+/* 基础样式 */
+body {
+    font-family: 'Noto Sans TC', 'Ma Shan Zheng', cursive;
+    color: var(--text-soft);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://ts3.tc.mm.bing.net/th/id/OIP-C.W3ksUztanJBJHpIaF3hnkQHaL2?rs=1&pid=ImgDetMain') center/cover no-repeat;
+    z-index: -1;
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* 主容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+/* 页眉样式 */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeIn 1.5s ease;
+}
+
+header h1 {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: white;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* 毛玻璃卡片 */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    background: var(--spring-pink);
+    border-radius: 50%;
+    background-image: url('https://img.keaitupian.cn/uploads/2020/07/03/afe6571b48dd4f5eb99df5b0edbec948.jpg'); /* 替换为你的头像 */
+    background-size: cover;
+    border: 3px solid white;
+}
+
+.spring-list {
+    list-style: none;
+    padding: 0;
+}
+
+.spring-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--spring-green);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.spring-list li::before {
+    content: '🌱';
+    position: absolute;
+    left: 0;
+}
+
+.spring-button {
+    background: linear-gradient(45deg, var(--spring-green), var(--spring-pink));
+    border: none;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spring-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(200, 228, 178, 0.4);
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    color: white;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.social-icons i {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: white;
+}
+
+.social-icons i:hover {
+    transform: scale(1.2);
+}
+
+.petal {
+    position: absolute;
+    background: white;
+    opacity: 0.7;
+    border-radius: 50% 0 50% 50%;
+    animation: falling linear infinite;
+}
+
+@keyframes falling {
+    0% {
+        transform: translate(0, -10vh) rotate(0deg);
+    }
+    100% {
+        transform: translate(calc(100vw * var(--random)), 100vh) rotate(360deg);
+    }
+}
+.petal:nth-child(1) {
+    --random: 0.1;
+    width: 15px;
+    height: 15px;
+    left: 10%;
+    animation-duration: 15s;
+    background: var(--spring-pink);
+}
+
+.petal:nth-child(2) {
+    --random: 0.3;
+    width: 12px;
+    height: 12px;
+    left: 30%;
+    animation-duration: 18s;
+    background: white;
+}
+
+.petal:nth-child(3) {
+    --random: 0.7;
+    width: 18px;
+    height: 18px;
+    left: 70%;
+    animation-duration: 12s;
+    background: var(--spring-green);
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    .glass-card {
+        padding: 1.5rem;
+    }
+}
